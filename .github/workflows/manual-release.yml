@@ -46,4 +46,6 @@ jobs:
 
     - name: Publish the Docker image
       run: |
+        docker tag spark:spark-xyz ghcr.io/bobyangbo/spark:spark-xyz
         docker push ghcr.io/bobyangbo/spark:spark-xyz
+
