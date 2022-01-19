@@ -20,16 +20,16 @@ jobs:
     - name: Call dev/make-distribution.sh
       run: |
         export MAVEN_OPTS="-Xss64m -Xmx4g -XX:ReservedCodeCacheSize=1g"
-        ./dev/make-distribution.sh --name datapunch --pip --tgz -Phive -Phive-thriftserver -Pkubernetes -Phadoop-3.2 -Phadoop-cloud
+        ./dev/make-distribution.sh --name xyz --pip --tgz -Phive -Phive-thriftserver -Pkubernetes -Phadoop-3.2 -Phadoop-cloud
         ls -l
 
     - name: Build the Docker image
       run: |
         mkdir -p temp
-        mv spark-*-bin-datapunch.tgz temp/
+        mv spark-*-bin-xyz.tgz temp/
         cd temp
-        tar xzvf spark-*-bin-datapunch.tgz
-        rm spark-*-bin-datapunch.tgz
-        mv spark-*-bin-datapunch spark-bin-datapunch
+        tar xzvf spark-*-bin-xyz.tgz
+        rm spark-*-bin-xyz.tgz
+        mv spark-*-bin-xyz spark-bin-xyz
         pwd
         ls -l
