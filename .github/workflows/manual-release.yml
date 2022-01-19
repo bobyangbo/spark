@@ -8,6 +8,10 @@ on:
         required: true
         default: '0.0.0'
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
 
   build:
