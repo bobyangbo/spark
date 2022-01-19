@@ -35,4 +35,4 @@ jobs:
         ls -l
         cd spark-bin-xyz
         ./bin/docker-image-tool.sh -t spark-xyz build
-        ./bin/docker images
+        docker images
