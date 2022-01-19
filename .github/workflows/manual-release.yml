@@ -38,7 +38,8 @@ jobs:
         pwd
         ls -l
         cd spark-bin-xyz
-        ./bin/docker-image-tool.sh -t spark-xyz build
+        ./bin/docker-image-tool.sh -t spark-3.2.0 build
+        ./bin/docker-image-tool.sh -t pyspark-3.2.0 -p kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
         docker images
 
     - name: Log in to the Container registry
@@ -50,6 +51,8 @@ jobs:
 
     - name: Publish the Docker image
       run: |
-        docker tag spark:spark-xyz ghcr.io/bobyangbo/spark:spark-xyz
-        docker push ghcr.io/bobyangbo/spark:spark-xyz
+        docker tag spark:spark-3.2.0 ghcr.io/bobyangbo/spark:spark-3.2.0
+        docker push ghcr.io/bobyangbo/spark:spark-3.2.0
+        docker tag spark:pyspark-3.2.0 ghcr.io/bobyangbo/spark:pyspark-3.2.0
+        docker push ghcr.io/bobyangbo/spark:pyspark-3.2.0
 
